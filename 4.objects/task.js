@@ -11,13 +11,13 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-	if ([...marks].length !== 0) {
+	if (this.hasOwnProperty('marks') == true) {
 		this.marks.push(...marks)
 	}
 }
 
 Student.prototype.getAverage = function () {
-	if (this.marks.length == 0 || this.marks == []) {
+	if (this.hasOwnProperty('marks') == false || this.marks.length == 0) {
 		return 0
 	} else {
 		const average = this.marks.reduce((average, el) => average + el, 0)
